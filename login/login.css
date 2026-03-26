@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+form {
+    background: white;
+    padding: 40px 50px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Radio button section */
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"] + label {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 0 5px 25px 0;
+    background: #f0f0f0;
+    color: #555;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input[type="radio"]:checked + label {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+input[type="radio"] + label:hover {
+    background: #e0e0e0;
+}
+
+input[type="radio"]:checked + label:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Text input labels */
+label[for="username"],
+label[for="pwd"] {
+    display: block;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+/* Text inputs */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: #f9f9f9;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #667eea;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+/* Add to the end of login.css */
+.btn-secondary {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    color: #667eea;
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-secondary:hover {
+    background: rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+}
+/* Submit button */
+input[type="button"],
+input[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+input[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    form {
+        padding: 30px 25px;
+    }
+    
+    input[type="radio"] + label {
+        display: block;
+        width: 100%;
+        margin: 0 0 10px 0;
+        text-align: center;
+    }
+}
+
+/* ── Error list inside the form card ─────────────────────────────────────── */
+
+.login-errors {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.login-errors li {
+    background: #fff3f3;
+    border-left: 4px solid #e05c5c;
+    color: #c0392b;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 13px;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 7px;
+}
+
+/* Red border on empty required inputs after a failed submit */
+input.input-error {
+    border-color: #e05c5c !important;
+    background: #fff8f8;
+}
+
+input.input-error:focus {
+    border-color: #e05c5c !important;
+    box-shadow: 0 0 0 3px rgba(224, 92, 92, 0.15) !important;
+}
+
+/* Register hint paragraph */
+.register-hint {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* ── Registration success banner ─────────────────────────────────────────── */
+
+.login-success {
+    background: #f0faf4;
+    border-left: 4px solid #27ae60;
+    color: #1a6b3c;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 13px;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 20px;
+}

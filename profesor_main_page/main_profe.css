@@ -1,0 +1,394 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ── Tokens ───────────────────────────────────────────────────────────────── */
+
+:root {
+    --purple-start : #667eea;
+    --purple-end   : #764ba2;
+    --gradient     : linear-gradient(135deg, var(--purple-start) 0%, var(--purple-end) 100%);
+    --white        : #ffffff;
+    --bg           : #f4f5fb;
+    --text-dark    : #2d2d3a;
+    --text-mid     : #555566;
+    --text-light   : #9090a8;
+    --border       : #e4e4f0;
+    --radius-lg    : 16px;
+    --radius-md    : 10px;
+    --radius-sm    : 6px;
+    --shadow-card  : 0 4px 24px rgba(102, 126, 234, 0.10);
+    --shadow-hover : 0 8px 32px rgba(102, 126, 234, 0.20);
+    --font         : 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    font-family: var(--font);
+    background: var(--bg);
+    min-height: 100vh;
+    color: var(--text-dark);
+}
+
+/* ── Navbar ───────────────────────────────────────────────────────────────── */
+
+.navbar {
+    background: var(--gradient);
+    padding: 0 40px;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 20px rgba(118, 75, 162, 0.30);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.brand-name {
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.navbar-user {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.navbar-pfp {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.navbar-nombre {
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.btn-editar {
+    display: inline-block;
+    padding: 8px 18px;
+    background: rgba(255, 255, 255, 0.18);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    border: 1.5px solid rgba(255, 255, 255, 0.45);
+    transition: all 0.25s ease;
+}
+
+.btn-editar:hover {
+    background: rgba(255, 255, 255, 0.30);
+    transform: translateY(-1px);
+}
+
+/* ── Main content ─────────────────────────────────────────────────────────── */
+
+.contenido {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 30px 60px;
+}
+
+/* ── Flash messages ───────────────────────────────────────────────────────── */
+
+.flash {
+    padding: 13px 18px;
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 28px;
+    border-left: 4px solid transparent;
+}
+
+.flash-success {
+    background: #f0faf4;
+    border-color: #27ae60;
+    color: #1a6b3c;
+}
+
+.flash-error {
+    background: #fff3f3;
+    border-color: #e05c5c;
+    color: #c0392b;
+}
+
+/* ── Stats strip ──────────────────────────────────────────────────────────── */
+
+.stats-strip {
+    margin-bottom: 32px;
+}
+
+.stat-card {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: 18px 28px;
+    box-shadow: var(--shadow-card);
+    border-left: 4px solid var(--purple-start);
+}
+
+.stat-number {
+    font-size: 36px;
+    font-weight: 800;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: var(--text-mid);
+    font-weight: 600;
+}
+
+/* ── Section title ────────────────────────────────────────────────────────── */
+
+.section-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+    letter-spacing: -0.3px;
+}
+
+/* ── Empty state ──────────────────────────────────────────────────────────── */
+
+.empty-state {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 60px 40px;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+}
+
+.empty-icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 14px;
+}
+
+.empty-state p {
+    color: var(--text-mid);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* ── Solicitudes grid ─────────────────────────────────────────────────────── */
+
+.solicitudes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 22px;
+}
+
+/* ── Solicitud card ───────────────────────────────────────────────────────── */
+
+.solicitud-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+    border: 1.5px solid var(--border);
+}
+
+.solicitud-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-3px);
+}
+
+/* Card header — avatar + name + date */
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.alumno-avatar {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 50%;
+    background: var(--gradient);
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alumno-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow: hidden;
+}
+
+.alumno-nombre {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-dark);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.solicitud-fecha {
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+/* Tags */
+
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.tag-materia {
+    background: rgba(102, 126, 234, 0.10);
+    color: var(--purple-start);
+}
+
+.tag-curso {
+    background: rgba(118, 75, 162, 0.10);
+    color: var(--purple-end);
+}
+
+/* Message */
+
+.card-mensaje {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.65;
+    flex-grow: 1;
+    background: #f9f9fd;
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    border-left: 3px solid var(--border);
+}
+
+/* Contact links */
+
+.card-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.contacto-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--purple-start);
+    text-decoration: none;
+    transition: color 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contacto-link:hover {
+    color: var(--purple-end);
+    text-decoration: underline;
+}
+
+/* Complete button */
+
+.btn-completar {
+    width: 100%;
+    padding: 11px;
+    background: var(--gradient);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 3px 12px rgba(102, 126, 234, 0.30);
+    margin-top: 4px;
+}
+
+.btn-completar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 18px rgba(102, 126, 234, 0.42);
+}
+
+.btn-completar:active {
+    transform: translateY(0);
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 0 20px;
+        height: auto;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .navbar-nombre {
+        display: none;
+    }
+
+    .contenido {
+        padding: 24px 16px 40px;
+    }
+
+    .solicitudes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        width: 100%;
+        justify-content: center;
+    }
+}

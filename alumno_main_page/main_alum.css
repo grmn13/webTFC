@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ensure the card doesn't clip the popup */
+li {
+    position: relative;
+    /* Remove 'overflow: hidden' if you had it */
+}
+
+/* Fix the popup appearance */
+.hidden-content.is-visible {
+    display: flex; /* Use flex to align items better */
+    flex-direction: column;
+    align-items: center;
+    position: fixed; /* Keep this to stay centered on screen */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    z-index: 99999; /* Ensure it's above everything */
+    cursor: default; /* So clicking inside doesn't feel like clicking a button */
+}
+
+/* Improve the message area - Change to textarea if possible, 
+   but for now, let's fix the input's look */
+.solicitud input[type="text"] {
+    min-height: 80px; 
+    word-wrap: break-word;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Main container div */
+body > div {
+    background: white;
+    padding: 40px 50px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Form */ 
+form {
+    width: 100%;
+}
+
+/* Headings */
+h3 {
+    color: #333;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+h3:first-child {
+    margin-top: 0;
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"] + label {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px 5px 5px 0;
+    background: #f0f0f0;
+    color: #555;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input[type="checkbox"]:checked + label {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+input[type="checkbox"] + label:hover {
+    background: #e0e0e0;
+}
+
+input[type="checkbox"]:checked + label:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Radio button styling */
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"] + label {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px 5px 5px 0;
+    background: #f0f0f0;
+    color: #555;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input[type="radio"]:checked + label {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+input[type="radio"] + label:hover {
+    background: #e0e0e0;
+}
+
+input[type="radio"]:checked + label:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Submit button */
+input[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+input[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Spacing for br tags */
+br {
+    display: block;
+    content: "";
+    margin-bottom: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    body > div {
+        padding: 30px 25px;
+    }
+    
+    input[type="checkbox"] + label,
+    input[type="radio"] + label {
+        display: block;
+        width: 100%;
+        margin: 0 0 10px 0;
+        text-align: center;
+    }
+    
+    h3 {
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,276 @@
+/* =======================
+   RESET & BASE
+======================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+/* =======================
+   TITLE
+======================= */
+
+h2 {
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* =======================
+   CARD GRID
+======================= */
+
+ul {
+    list-style: none;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+li {
+    position: relative;
+}
+
+/* =======================
+   TEACHER CARD
+======================= */
+
+.card-container {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+/*
+.card-container:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.3);
+}
+*/
+.card-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 15px;
+    object-fit: cover;
+    border: 4px solid #f0f0f0;
+}
+
+.card-container h4 {
+    text-align: center;
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+/* =======================
+   SUBJECT TAGS
+======================= */
+
+.materias_profesor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.materias_profesor p {
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+/* =======================
+   BACKDROP
+======================= */
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+    z-index: 999;
+}
+
+.modal-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* =======================
+   POPUP / MODAL
+======================= */
+
+.hidden-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.85);
+    width: min(700px, 90%);
+    background: white;
+    border-radius: 16px;
+    padding: 40px 50px;
+    box-shadow: 0 25px 60px rgba(0,0,0,.45);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .3s ease, opacity .3s ease;
+
+    z-index: 1000;
+}
+
+.hidden-content.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* =======================
+   POPUP CONTENT
+======================= */
+
+.hidden-content img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 20px;
+    border: 5px solid #f0f0f0;
+}
+
+.hidden-content h4 {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* =======================
+   CLOSE BUTTON
+======================= */
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: #f0f0f0;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.close-button:hover {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    transform: rotate(90deg);
+}
+
+/* =======================
+   FORM
+======================= */
+
+.solicitud p {
+    background: #f9f9f9;
+    border-left: 4px solid #667eea;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+textarea{
+    width: 100%;
+    min-height: 120px;
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+    font-size: 15px;
+
+}
+
+.solicitud input[type="text"] {
+    width: 100%;
+    min-height: 120px;
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+    font-size: 15px;
+}
+
+.solicitud input[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.error {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.85);
+    width: min(700px, 90%);
+    background: white;
+    border-radius: 16px;
+    padding: 40px 50px;
+    box-shadow: 0 25px 60px rgba(0,0,0,.45);
+
+}
+
+.error h1{
+
+    color: black;
+    text-align: center;
+
+}
+.error h2{
+
+    color: black;
+    text-align: center;
+}
+
+
+/* =======================
+   MOBILE
+======================= */
+
+@media (max-width: 768px) {
+    .hidden-content {
+        padding: 30px 25px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+}

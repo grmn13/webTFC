@@ -1,0 +1,478 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ── Tokens (same as main_profe.css) ──────────────────────────────────────── */
+
+:root {
+    --purple-start : #667eea;
+    --purple-end   : #764ba2;
+    --gradient     : linear-gradient(135deg, var(--purple-start) 0%, var(--purple-end) 100%);
+    --white        : #ffffff;
+    --bg           : #f4f5fb;
+    --text-dark    : #2d2d3a;
+    --text-mid     : #555566;
+    --text-light   : #9090a8;
+    --border       : #e0e0f0;
+    --radius-lg    : 16px;
+    --radius-md    : 10px;
+    --radius-sm    : 6px;
+    --shadow-card  : 0 4px 24px rgba(102, 126, 234, 0.10);
+    --font         : 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    font-family: var(--font);
+    background: var(--bg);
+    min-height: 100vh;
+    color: var(--text-dark);
+}
+
+/* ── Navbar ───────────────────────────────────────────────────────────────── */
+
+.navbar {
+    background: var(--gradient);
+    padding: 0 40px;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 20px rgba(118, 75, 162, 0.30);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.brand-name {
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.btn-volver {
+    display: inline-block;
+    padding: 8px 18px;
+    background: rgba(255, 255, 255, 0.18);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    border: 1.5px solid rgba(255, 255, 255, 0.45);
+    transition: all 0.25s ease;
+}
+
+.btn-volver:hover {
+    background: rgba(255, 255, 255, 0.30);
+    transform: translateY(-1px);
+}
+
+/* ── Main content ─────────────────────────────────────────────────────────── */
+
+.contenido {
+    display: flex;
+    justify-content: center;
+    padding: 44px 20px 60px;
+}
+
+/* ── Profile card ─────────────────────────────────────────────────────────── */
+
+.perfil-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    padding: 40px 44px;
+    width: 100%;
+    max-width: 600px;
+    border: 1.5px solid #eaeaf5;
+}
+
+/* ── Avatar section ───────────────────────────────────────────────────────── */
+
+.avatar-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+/* Wrapper positions the clickable overlay on top of the image */
+.avatar-wrapper {
+    position: relative;
+    width: 96px;
+    height: 96px;
+    cursor: pointer;
+}
+
+.avatar-img {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 0 3px var(--purple-start), 0 6px 20px rgba(102, 126, 234, 0.25);
+    display: block;
+    transition: filter 0.25s;
+}
+
+/* Camera overlay — appears on hover */
+.avatar-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: rgba(102, 126, 234, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s;
+    cursor: pointer;
+}
+
+.avatar-wrapper:hover .avatar-overlay {
+    opacity: 1;
+}
+
+.avatar-wrapper:hover .avatar-img {
+    filter: brightness(0.75);
+}
+
+.avatar-overlay-icon {
+    font-size: 26px;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.avatar-hint {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+/* ── Chosen-file indicator bar ────────────────────────────────────────────── */
+
+.pfp-chosen {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background: rgba(102, 126, 234, 0.08);
+    border: 1.5px solid rgba(102, 126, 234, 0.25);
+    border-radius: var(--radius-md);
+    padding: 9px 14px;
+    margin-bottom: 18px;
+    font-size: 13px;
+    color: var(--purple-start);
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.pfp-chosen button {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.pfp-chosen button:hover {
+    background: rgba(224, 92, 92, 0.12);
+    color: #c0392b;
+}
+
+/* ── Form title ───────────────────────────────────────────────────────────── */
+
+.form-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 22px;
+    text-align: center;
+    letter-spacing: -0.3px;
+}
+
+/* ── Feedback banners ─────────────────────────────────────────────────────── */
+
+.banner {
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    border-left: 4px solid transparent;
+}
+
+.banner-success {
+    background: #f0faf4;
+    border-color: #27ae60;
+    color: #1a6b3c;
+}
+
+.error-list {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.error-list li {
+    background: #fff3f3;
+    border-left: 4px solid #e05c5c;
+    color: #c0392b;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 13px;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    margin-bottom: 7px;
+}
+
+/* ── Form layout ──────────────────────────────────────────────────────────── */
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 7px;
+    letter-spacing: 0.1px;
+}
+
+.optional {
+    font-weight: 500;
+    color: var(--text-light);
+    font-size: 12px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+    padding: 11px 14px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-family: var(--font);
+    color: var(--text-dark);
+    background: #f9f9fd;
+    transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: var(--purple-start);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.12);
+}
+
+/* ── Materias section ─────────────────────────────────────────────────────── */
+
+.materias-empty {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-bottom: 18px;
+}
+
+.materias-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.materia-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--border);
+    background: #f9f9fd;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.materia-row:has(.materia-checkbox:checked) {
+    border-color: var(--purple-start);
+    background: rgba(102, 126, 234, 0.04);
+}
+
+.materia-check-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    flex: 1;
+    min-width: 0;
+    user-select: none;
+}
+
+.materia-check-label input[type="checkbox"] {
+    display: none;
+}
+
+.materia-check-box {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border-radius: 5px;
+    border: 2px solid var(--border);
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.materia-check-label input[type="checkbox"]:checked + .materia-check-box {
+    background: var(--gradient);
+    border-color: transparent;
+}
+
+.materia-check-label input[type="checkbox"]:checked + .materia-check-box::after {
+    content: '';
+    display: block;
+    width: 5px;
+    height: 9px;
+    border: 2px solid white;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg) translateY(-1px);
+}
+
+.materia-nombre {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.materia-curso-wrap {
+    display: none;
+    flex-shrink: 0;
+}
+
+.materia-curso-wrap.visible {
+    display: block;
+}
+
+.materia-curso-select {
+    padding: 7px 10px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-family: var(--font);
+    color: var(--text-dark);
+    background: var(--white);
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    max-width: 180px;
+}
+
+.materia-curso-select:focus {
+    outline: none;
+    border-color: var(--purple-start);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.12);
+}
+
+/* ── Separator ────────────────────────────────────────────────────────────── */
+
+.separator {
+    display: flex;
+    align-items: center;
+    margin: 10px 0 20px;
+    color: var(--text-light);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.separator::before { margin-right: 10px; }
+.separator::after  { margin-left: 10px; }
+
+/* ── Submit button ────────────────────────────────────────────────────────── */
+
+input[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background: var(--gradient);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 15px;
+    font-family: var(--font);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.30);
+    margin-top: 8px;
+}
+
+input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.42);
+}
+
+input[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .perfil-card {
+        padding: 28px 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
