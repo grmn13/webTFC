@@ -35,3 +35,7 @@ Tue, 24 Mar 26 11:34:33 +0000 Successful login (prof) id: 1
 Tue, 24 Mar 26 11:35:10 +0000 Successful login (alum) id: 1
 Tue, 24 Mar 26 11:35:29 +0000 Successful login (prof) id: 1
 Wed, 25 Mar 26 19:23:06 +0000 Successful login (prof) id: 1
+Thu, 26 Mar 26 09:44:36 +0000 Failed login (prof) usuario: alumno1
+Thu, 26 Mar 26 09:44:40 +0000 Successful login (alum) id: 1
+Thu, 26 Mar 26 09:44:45 +0000 Failed login (prof) usuario: alumno1
+Thu, 26 Mar 26 09:44:53 +0000 Successful login (prof) id: 1

@@ -69,7 +69,7 @@ if (!$running || $_SERVER["REQUEST_METHOD"] != "POST") {
 }
 else{
 
-        header("Location: ../login/login.html");
+        header("Location: ../login/login.php");
         exit();
 }
 ?>
